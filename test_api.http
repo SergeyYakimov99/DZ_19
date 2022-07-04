@@ -1,4 +1,4 @@
-GET http://127.0.0.1:10001/movies/
+GET http://127.0.0.1:10001/movies/7
 Accept: application/json
 
 ###
@@ -38,7 +38,7 @@ Accept: application/json
 
 ###
 
-GET http://127.0.0.1:10001/movies/21
+GET http://127.0.0.1:10001/movies/
 Accept: application/json
 
 ###
@@ -48,11 +48,33 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "title": "Гарри Поттер мой кумир!",
+  "title": "Пятачок --- кумир!",
   "trailer": "таким фильмам не нужны трейлеры",
-  "year": 1990,
+  "year": 1993,
   "rating": 10,
   "description": "10 из 10!"
+}
+
+###
+
+POST http://127.0.0.1:10001/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "test1",
+  "password": "testp",
+  "role": "testr"
+}
+
+###
+
+POST http://127.0.0.1:10001/genres/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "test1"
 }
 
 ###
@@ -65,8 +87,8 @@ Content-Type: application/json
   "id": 21,
   "title": "-------",
   "trailer": "-----",
-  "year": 0,
-  "rating": 0,
+  "year": 2022,
+  "rating": 10,
   "description": "0 из 10!",
   "genre_id": 1,
   "director_id": 1
@@ -91,4 +113,37 @@ Content-Type: application/json
 
 ###
 
-DELETE http://127.0.0.1:10001/movies/21
+DELETE http://127.0.0.1:10001/users/5
+
+###
+
+POST http://127.0.0.1:10001/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "233445rt",
+  "role": "admin"
+}
+
+###
+
+POST http://127.0.0.1:10001/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "233445rt"
+}
+
+###
+
+PUT http://127.0.0.1:10001/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTY2ODEwNTE0NH0.gtYebk71xSHMcZvGRW9G90gp34mHAL7-b8foBsV-86Q"
+}
