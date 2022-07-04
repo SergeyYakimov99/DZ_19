@@ -34,6 +34,6 @@ class UserView(Resource):
         user_service.update(req_json)
         return "", 204
 
-    def delete(self, uid):
-        user_service.delete(uid)
+    def delete(self, bid):
+        user_service.delete(bid)
         return "", 204
