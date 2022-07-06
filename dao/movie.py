@@ -28,6 +28,8 @@ class MovieDAO:
 
     def delete(self, rid):
         movie = self.get_one(rid)
+        if not movie:
+            return f"Такого фильма с id = {rid} нет."
         self.session.delete(movie)
         self.session.commit()
 

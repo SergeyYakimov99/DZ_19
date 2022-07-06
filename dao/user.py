@@ -22,6 +22,8 @@ class UserDAO:
 
     def delete(self, uid):
         user = self.get_one(uid)
+        if not user:
+            return f"Такого пользователя с id = {uid} нет."
         self.session.delete(user)
         self.session.commit()
 
